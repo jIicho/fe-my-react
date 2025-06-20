@@ -1,7 +1,7 @@
 // JSX 없이 구조를 만들기 위해 createElement 함수 만들기
 // 전달받은 type, props, children을 기반으로 구조를 만들어서 반환하는 함수
 // JavaScript 객체로 구조화
-function createElement(type, props, ...children) {
+export function createElement(type, props, ...children) {
   return {
     type: type,
     props: {
@@ -14,7 +14,7 @@ function createElement(type, props, ...children) {
 }
 
 // text를 기반으로 구조를 만들어서 반환하는 함수
-function createTextElement(text) {
+export function createTextElement(text) {
   return {
     type: "TEXT_ELEMENT",
     props: {
@@ -27,12 +27,3 @@ function createTextElement(text) {
     },
   };
 }
-
-const element = createElement(
-  "div",
-  { id: "container" },
-  createElement("h1", null, "안녕! 코드스쿼드"),
-  createElement("p", null, "궁시렁 궁시렁")
-);
-
-console.log(JSON.stringify(element, null, 2));
